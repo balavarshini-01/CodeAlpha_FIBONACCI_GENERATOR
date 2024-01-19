@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci Number Generator</title>
+    <style>
+body,html{
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: hidden;
+}
+.total
+{
+    text-align: center;
+    margin-top:5%;
+
+    }
+.btn{
+
+    background-color: #F292C0;
+    border: none;
+    color: black;
+    padding: 10px 22px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.5s;
+    border-radius: 10%;
+    font-family: cursive;
+
+}
+.btn:hover {
+    background-color: #E32C84;
+    color: white;
+}
+.pint{
+    font-family:Calibri;
+    font-size: x-large;
+
+}
+h1{
+    font-family: cursive;
+    font-weight: lighter;
+    font-size: xxx-large;
+}
+#pint{
+    border-color: #9a9ae1;
+    border: none;
+    padding-top: 1%;
+    border-radius: 50px 20px;
+      font-size: x-large;
+}
+
+    </style>
+
+</head>
+<body>
+<div class="total">
+    <h1>Fibonacci Generator</h1>
+    <form action="/calculate" method="post">
+    <lable class="pint" for="n">Enter the positive integer:</lable>
+    <input type="number" id="pint" name="n" required><br><br>
+    <button type="submit" class="btn">Click</button>
+    </form>
+    {% if error %}
+        <p style="color: #ff0000;font-family: cursive;font-size: xx-large;">{{ error }}</p>
+    {% endif %}
+    {% if n is defined %}
+        <h2 style="color:black;font-family: cursive;font-size: xx-large;" >Fibonacci Sequence for the first {{ n }} terms:</h2>
+        <p style="color:black;font-family: cursive;font-size:large;">{{ fibonacci_sequence | join(', ') }}</p>
+    {% endif %}
+
+</div>
+</body>
+</html>
